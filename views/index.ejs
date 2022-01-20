@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/navbar.ejs') %>
+         
+        <div class="page-heading">
+            <h1>MLH FELLOWS</h1>
+        </div>
+
+        <div class="user-table">
+            <table id="customers">
+                <thead>
+                <tr class ="first-row">
+                    <th>Image</th>
+                  <th>Name</th>
+                  <th>University</th>
+                  <th>City</th>
+                  <th>Country</th>
+                  <!-- <th>Favourite Programming Languages</th> -->
+                  <th>Social Handles</th>
+                </tr>
+            </thead>  
+
+            <tbody>
+   
+                <% if(peers.length > 0) { %>
+                    <% peers.forEach(peer => { %>
+                        <tr>
+                        
+                            <td class="profile-image"><img src="<%=  peer.Image %>" alt="" id ="peer-img"></td>
+                            
+                            <td><%=  peer.Name %></td>
+                            <td ><%=  peer.University %></td>
+                            <td><%=  peer.City %></td>
+                            <td><%=  peer.Country %></td>
+                            <!-- <td> <%=  peer.Favourite_Programming_Languages %></td> -->
+                            <td><footer id="social-icons">
+                                
+                                <div class="fot-icons">
+                                
+                                   <a href= "<%=  peer.LinkedIn %>"><i class="fab fa-linkedin-in"></i></a>
+                                   <a href =" <%=  peer.GitHub %>"><i class="fab fa-github"></i></a>
+                                   <a href = "<%=  peer.Twitter %>"><i class="fab fa-twitter"></i> </a>
+
+                                </div>
+                            
+                            </footer></td>
+                        </tr>
+                    <% }) %>
+                    <% }  
+                    else {%> 
+                        <p>There are no peers to display... </p>
+                       
+                    <% } %>
+
+
+            </tbody>
+            
+              </table>
+            </div>  
+
+    <%- include('./partials/footer.ejs') %>
+
+           
+
+</body>
+</html>
